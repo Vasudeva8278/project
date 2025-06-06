@@ -30,12 +30,19 @@ app.use(cors({
 app.use(express.json());
 
 // Routes
+
+app.get("",(req,res)=>{
+    res.send("Hello")
+})
+
+
+
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', authenticateToken, taskRoutes);
 app.use('/api/users', authenticateToken, userRoutes);
 app.use('/api/notifications', authenticateToken, notificationRoutes);
 
-// Socket.io connection
+
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
 
