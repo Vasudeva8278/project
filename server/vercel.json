@@ -12,10 +12,10 @@
       "dest": "/server.js"
     }
   ],
- "env": {
-  "MONGODB_URI": "@mongodb_uri",
-  "JWT_SECRET": "@jwt_secret",
-  "JWT_EXPIRE": "24h",
-  "CLIENT_URL": "@client_url"
-}
+  "env": {
+    "MONGODB_URI": "mongodb+srv://busitron:busitron9999@busitron.jzq8f.mongodb.net/taskmanager",
+    "JWT_SECRET": "your-super-secret-jwt-key-change-this-in-production",
+    "JWT_EXPIRE": "24h",
+    "CLIENT_URL": "http://localhost:5173"
+  }
 }
