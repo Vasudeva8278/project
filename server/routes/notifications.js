@@ -69,6 +69,7 @@ router.delete('/:id', async (req, res) => {
     console.error('Delete notification error:', error);
     res.status(500).json({ message: 'Server error' });
   }
+  
 });
 
 export default router;
