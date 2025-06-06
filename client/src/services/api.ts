@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = "https://servernodepro.vercel.app/api"
+const API_BASE_URL ="https://servernodepro.vercel.app/api"
 
-// Create axios instance
+
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
