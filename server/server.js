@@ -17,14 +17,33 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin || 
+          origin === 'https://project-sooty-three-14.vercel.app' || 
+          origin === 'http://localhost:5173' ||
+          origin === 'https://servernodepro.vercel.app') {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"]
   }
 });
 
 // Middleware
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: function (origin, callback) {
+    // Allow requests from your frontend domain and any subdomains
+    if (!origin || 
+        origin === 'https://project-sooty-three-14.vercel.app' || 
+        origin === 'http://localhost:5173' ||
+        origin === 'https://servernodepro.vercel.app') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(express.json());
